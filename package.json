@@ -1,0 +1,32 @@
+{
+  "name": "migrate-from-hotmart-to-learndash",
+  "version": "1.0.0",
+  "description": "A small proyect for resolve a safe users migration from a hotmart course to a learndash course in wordpress, using the API REST of wordpress",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagoavilez/import-from-hotmart-to-learndash-wordpress.git"
+  },
+  "keywords": [
+    "hotmart",
+    "learndash",
+    "wordpress",
+    "REST",
+    "API",
+    "CSV",
+    "node.js"
+  ],
+  "author": "https://github.com/santiagoavilez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagoavilez/import-from-hotmart-to-learndash-wordpress/issues"
+  },
+  "homepage": "https://github.com/santiagoavilez/import-from-hotmart-to-learndash-wordpress#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "fs": "^0.0.1-security"
+  }
+}
