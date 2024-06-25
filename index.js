@@ -2,11 +2,11 @@ const fs = require('fs');
 const axios = require('axios');
 
 // Configuración
-const usersFile = 'filtered_users/user_filtered.ld'; // Archivo con los usuarios filtrados
-const wpBaseUrl = 'https://tu-sitio.com/wp-json'; // URL base de la API REST de WordPress
+const usersFile = 'src/users.csv'; // Archivo con los usuarios filtrados
+const wpBaseUrl = process.env.WORDPRESS_SITE_URL; // URL base de la API REST de WordPress
 const courseId = 24258;  // ID del curso que deseas agregar
-const wpUser = 'tu_usuario_wp'; // Usuario de WordPress
-const wpPassword = 'tu_password_wp'; // Contraseña de WordPress
+const wpUser = process.env.WORDPRESS_ADMIN_USER; // Usuario de WordPress
+const wpPassword = process.env.WORDPRESS_APP_PASSWORD; // Contraseña de WordPress
 
 // Archivo de salida para registrar los cambios
 const outputFile = 'user_update_log.txt';

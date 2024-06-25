@@ -4,7 +4,7 @@
   "description": "A small proyect for resolve a safe users migration from a hotmart course to a learndash course in wordpress, using the API REST of wordpress",
   "main": "index.js",
   "scripts": {
-    "test": "node ./index.js"
+    "test": "node --env-file=.env ./index.js"
   },
   "repository": {
     "type": "git",
