@@ -2,5 +2,6 @@
 
 .env
 
-
-*.csv
+/src/*.csv
+/src/*.json
+/src/*.txt
