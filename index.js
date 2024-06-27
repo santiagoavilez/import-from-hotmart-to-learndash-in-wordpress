@@ -3,13 +3,14 @@ import axios from "axios";
 
 // Configuración
 const wpBaseUrl = process.env.WORDPRESS_SITE_URL; // URL base de la API REST de WordPress
-const courseId = process.env.LEARNDASH_COURSE_ID; // ID del curso que deseas agregar
+const courseId = parseInt(process.env.LEARNDASH_COURSE_ID);  // ID del curso que deseas agregar
 const wpUser = process.env.WORDPRESS_ADMIN_USER; // Usuario de WordPress
 const wpPassword = process.env.WORDPRESS_APP_PASSWORD; // Contraseña de WordPress
-import users from "./src/output-learndash-mindfulness-jugando.json" assert { type: "json" };
-
+// import users from "./src/output-learndash-mindfulness-jugando.json" assert { type: "json" };
+import { getUserFromCsv } from "./getUsers.js";
 // Archivo de salida para registrar los cambios
-const outputFile = "user_update_course_12443_log.txt";
+const outputFile = "./src/user_update_course_12443_log.txt";
+
 
 // Borrar el archivo de salida existente
 if (fs.existsSync(outputFile)) {
@@ -99,6 +100,7 @@ async function createUser(user) {
 
 // Función principal para actualizar los usuarios
 async function updateUsers() {
+  const users = await getUserFromCsv("./src/inteligencia-emocional.csv");
   for (const user of users) {
     const email = user.user_email;
     console.log(`Processing user with email ${email}...`);
@@ -168,7 +170,6 @@ async function updateUsers() {
           outputFile,
           `User ${email} (ID: ${userId}) is not enrolled in course ${courseId}. Enrolling now.\n`
         );
-
         const result = await enrollUserInCourse(userId, courseId);
         if (result) {
           console.log(
